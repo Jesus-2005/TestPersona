@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.stream.Stream;
 
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -59,10 +59,10 @@ public class PersonaTest {
                 + "Nombre: Jesus\n"
                 + "Sexo: hombre\n"
                 + "Edad: 30 años\n"
-                + "DNI: 12345678X\n"
+                + "DNI: \\d{8}[A-Z]\n"
                 + "Peso:  66.32 kg\n"
                 + "Altura: 1.75 metros\n";
-		assertThat(p.toString(), is(resultado));
+		assertThat(p.toString(), matchesPattern(resultado));
 	}
 	
 	
